@@ -17,7 +17,7 @@ public class Book
             generator = "book_sequence"
     )
     private Long id;
-    private Long ISBN;
+    private String ISBN;
     private String title;
     private String author;
     private String genre;
@@ -31,7 +31,7 @@ public class Book
         this.sales = 0;
     }
 
-    public Book(Long ISBN, String title, String author, String genre, String description, String publisher, int year_published, double price) {
+    public Book(String ISBN, String title, String author, String genre, String description, String publisher, int year_published, double price) {
         this.ISBN = ISBN;
         this.title = title;
         this.author = author;
@@ -43,7 +43,7 @@ public class Book
         this.sales = 0;
     }
 
-    public Book(Long ISBN, String title, String author, String genre, String publisher, int year_published, double price) {
+    public Book(String ISBN, String title, String author, String genre, String publisher, int year_published, double price) {
         this.ISBN = ISBN;
         this.title = title;
         this.author = author;
@@ -62,11 +62,11 @@ public class Book
         this.id = id;
     }
 
-    public Long getISBN() {
+    public String getISBN() {
         return ISBN;
     }
 
-    public void setISBN(Long ISBN) {
+    public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
 
