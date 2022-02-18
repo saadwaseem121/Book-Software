@@ -12,6 +12,8 @@ public class BookConfig {
     CommandLineRunner bookCommandLineRunner(BookRepository repository){
         return args->
         {
+            //add books by declaring their ISBN, title, author, genre, descrption,
+            //publisher, year of publication, and price in that order
             Book book1 = new Book("0747532699", "Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "Fantasy",
                         "Harry Potter and the Sorcerer's Stone is an enthralling start to\n" +
                         "  Harry's journey toward coming to terms with his past and facing his future.",
