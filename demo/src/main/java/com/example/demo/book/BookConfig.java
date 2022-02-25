@@ -70,7 +70,7 @@ public class BookConfig {
                                    "When Percy's mom finds out, she sends Percy to Camp Half Blood, a summer camp for " + 
                                    "demigods, where he learns that the father he never knew is Poseidon, god of the sea.",
                                    "Disney-Hyperion Books", 2006, 7.99);                                 
-            Book book13 = new Book("9780141334011", "The Lost Hero (Heroes of Olympus, Book 1)", "Rick Riordan", "Fairy Tales, Folk Tales & Myths",
+            Book book14 = new Book("9780141334011", "The Lost Hero (Heroes of Olympus, Book 1)", "Rick Riordan", "Fairy Tales, Folk Tales & Myths",
                                    "Jason has a problem. He doesn’t remember anything before waking up on a school bus holding hands with a girl. " +
 "                                   Apparently she’s his girlfriend Piper, his best friend is a kid named Leo, and they’re all students in the Wilderness School.",
                                    "Disney-Hyperion Books", 2012, 9.99);                           
