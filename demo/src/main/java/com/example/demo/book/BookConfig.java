@@ -72,7 +72,7 @@ public class BookConfig {
                                    "Disney-Hyperion Books", 2006, 7.99);                                 
             Book book14 = new Book("9780141334011", "The Lost Hero (Heroes of Olympus, Book 1)", "Rick Riordan", "Fairy Tales, Folk Tales & Myths",
                                    "Jason has a problem. He doesn’t remember anything before waking up on a school bus holding hands with a girl. " +
-"                                   Apparently she’s his girlfriend Piper, his best friend is a kid named Leo, and they’re all students in the Wilderness School.",
+                                   "Apparently she’s his girlfriend Piper, his best friend is a kid named Leo, and they’re all students in the Wilderness School.",
                                    "Disney-Hyperion Books", 2012, 9.99);    
             Book book15 = new Book("9781626927681", "Arifureta: From Commonplace to World's Strongest (Light Novel) Vol. 1", "Ryo Shirakome", "Ryo Shirakome",
                                    "Hajime life suddenly turned upside down when he, along with the rest of his class, is summoned to a fantasy world! " +
@@ -90,17 +90,26 @@ public class BookConfig {
                                    "Takasu Ryuuji is a nice guy, but making friends when you've got an unintentionally scary face is tough. " +
                                    "Yet, Aisaka Taiga is beautiful, frightening, the girl known as the Palmtop Tiger is the one person in school even scarier than Ryuuji himself.",
                                    "Seven Seas", 2018, 13.99); 
-            Book book19 = new Book("9780141334011", " Golden Time Vol. 1", "Yuyuko Takemiya", "Literature & Fiction",
+            Book book19 = new Book("9781626921887", "Golden Time Vol. 1", "Yuyuko Takemiya", "Literature & Fiction",
                                    "College freshman Tada Banri is looking forward to a new life after losing his memories. Upon enrolling in Tokyo law school, " +
                                    "this new direction in Banri’s life stops short when he happens across a person from his past during the school’s opening ceremony.",
                                    "Seven Seas", 2015, 24.42);
-            Book book20 = new Book("9780141334011", "      
-                                   
-            Book book21 = new Book("9780141334011", "   
-                                   
-            Book book22 = new Book("9780141334011", "   
-             
-            Book book23 = new Book("9780141334011", "                          
+            Book book20 = new Book("9781626926585", "Grimgar of Fantasy and Ash (Light Novel) Vol. 1", "Ao Jyumonji", "Literature & Fiction",
+                                   "Haruhiro awakens among a group of strangers who can only remember their own names. When they make it into the light, they discover Grimgar. " +
+                                   "Only by cooperating, and learning new skills can they hope to survive in this dangerous land of monsters.",
+                                   "Seven Seas", 2017, 13.99);
+            Book book21 = new Book("9780316339155", "Is It Wrong to Try to Pick Up Girls in a Dungeon?, Vol. 1 - light novel", "Fujino Omori", "Science Fiction & Fantasy",
+                                   "Is it wrong to face the perils of Dungeon alone? Maybe. Is it wrong to dream of playing hero to maidens in Dungeon? Maybe not. " +
+                                   "Bell discovers that anything can happen in the labyrinth. The only problem? He's the one who winds up the damsel in distress!",
+                                   "Yen Press", 2014, 14.00);
+            Book book22 = new Book("9783842025738", "The Rising of the Shield Hero Volume 1", "Aneko Yusagi", "World Literature & Fiction",
+                                   "Naofumi suddenly finds himself summoned to a parallel universe! He discovers he is one of four heroes tasked with saving the world " +
+                                   "from its prophesied destruction as the Shield Hero. Naofumi is soon alone, penniless, and betrayed with no one to turn to.",
+                                   "One Peace Books", 2015, 12.95);
+            Book book23 = new Book("9780316553377", "Konosuba: God's Blessing on This Wonderful World!, Vol. 1: Oh! My Useless Goddess!", "Natsume Akatsuki", "Science Fiction & Fantasy",
+                                   "After dying Kazuma opens his eyes to see a goddess that offers him a chance to be in a parallel world. " +
+                                   "The catch is that the world is violent by a growing evil! Fortunately, he can choose any one thing to bring with him. So he chooses the goddess, Aqua! ",
+                                   "Yen On", 2017, 14.00);                          
             repository.saveAll(
                     List.of(book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, 
                            book14, book15, book16, book17, book18, book19, book20, book21, book22, book23)
