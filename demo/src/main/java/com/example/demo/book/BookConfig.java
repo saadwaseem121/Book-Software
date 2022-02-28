@@ -73,7 +73,34 @@ public class BookConfig {
             Book book14 = new Book("9780141334011", "The Lost Hero (Heroes of Olympus, Book 1)", "Rick Riordan", "Fairy Tales, Folk Tales & Myths",
                                    "Jason has a problem. He doesn’t remember anything before waking up on a school bus holding hands with a girl. " +
 "                                   Apparently she’s his girlfriend Piper, his best friend is a kid named Leo, and they’re all students in the Wilderness School.",
-                                   "Disney-Hyperion Books", 2012, 9.99);                           
+                                   "Disney-Hyperion Books", 2012, 9.99);    
+            Book book15 = new Book("9781626927681", "Arifureta: From Commonplace to World's Strongest (Light Novel) Vol. 1", "Ryo Shirakome", "Ryo Shirakome",
+                                   "Hajime life suddenly turned upside down when he, along with the rest of his class, is summoned to a fantasy world! " +
+                                   "Hajime's job, Synergist, only has a single transmutation skill. Will he be able to survive in this dangerous world of monsters and demons?".
+                                   "Seven Seas Entertainment", 2018, 23.75);
+            Book book16 = new Book("9780008402648", "The Christmas Killer: (DI James Walker series) (Book 1)", "Alex Pine", "Action & Adventure", 
+                                   "DI James Walker family Christmas is disturb when he opens a box on his doorstep. Inside is a promise – twelve days, twelve murders. " +
+                                   "Not long after, the first body is found. Panic spreads through the remote Cumbrian village, there’s a killer amongst them.",
+                                   "HarperCollins UK", 2021, 12.99);
+            Book book17 = new Book("9780802716743", "Ghosts of Spain: Travels Through Spain and Its Silent Past", "Giles Tremlett", "Non-fiction & Travel Literature",
+                                   "Sixty years after the Spanish Civil War, victims of Franco's death squads broke what Spaniards call 'the pact of forgetting'. " +
+                                   "Giles Tremlett embarked on a journey around the country to discover why some of Europe's most voluble people have kept silent.".
+                                   "Non-fiction & Travel Literature. Bloomsbury USA", 2008, 20.00);
+            Book book18 = new Book("9781626927957", "Toradora! (Light Novel) Vol. 1", "Yuyuko Takemiya", "Literature & Fiction",
+                                   "Takasu Ryuuji is a nice guy, but making friends when you've got an unintentionally scary face is tough. " +
+                                   "Yet, Aisaka Taiga is beautiful, frightening, the girl known as the Palmtop Tiger is the one person in school even scarier than Ryuuji himself.",
+                                   "Seven Seas", 2018, 13.99); 
+            Book book19 = new Book("9780141334011", " Golden Time Vol. 1", "Yuyuko Takemiya", "Literature & Fiction",
+                                   "College freshman Tada Banri is looking forward to a new life after losing his memories. Upon enrolling in Tokyo law school, " +
+                                   "this new direction in Banri’s life stops short when he happens across a person from his past during the school’s opening ceremony.",
+                                   "Seven Seas", 2015, 24.42);
+            Book book20 = new Book("9780141334011", "      
+                                   
+            Book book21 = new Book("9780141334011", "   
+                                   
+            Book book22 = new Book("9780141334011", "   
+             
+            Book book23 = new Book("9780141334011", "                          
             repository.saveAll(
                     List.of(book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, 
                            book14, book15, book16, book17, book18, book19, book20, book21, book22, book23)
