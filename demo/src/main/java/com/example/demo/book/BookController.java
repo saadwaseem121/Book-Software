@@ -33,4 +33,18 @@ public class BookController {
     {
         bookService.deleteBook(bookId);
     }
+
+    @PutMapping(path = "{bookId}")
+    public void updateBook(
+            @PathVariable("bookId") Long bookId,
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String genre,
+            @RequestParam(required = false) String description,
+            @RequestParam(required = false) String publisher,
+            @RequestParam(required = false) int year_published,
+            @RequestParam(required = false) double price)
+    {
+        bookService.updateBook(bookId, title, genre, description, publisher, year_published, price);
+    }
+    
 }
