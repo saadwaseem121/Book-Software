@@ -2,7 +2,7 @@ package com.example.demo.book;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Book")
 @Table
 public class Book
 {
@@ -16,14 +16,29 @@ public class Book
             strategy = GenerationType.SEQUENCE,
             generator = "book_sequence"
     )
+    @Column(name = "id", updatable = false)
     private Long id;
+
+    @Column(name = "ISBN", nullable = false, unique = true)
     private String ISBN;
+
+    @Column(nullable = false)
     private String title;
+
+    @Column(nullable = false)
     private String author;
+
+    @Column(nullable = false)
     private String genre;
     private String description;
+
+    @Column(nullable = false)
     private String publisher;
+
+    @Column(nullable = false)
     private int year_published;
+
+    @Column(nullable = false)
     private double price;
     private int sales;
     private double rating;
