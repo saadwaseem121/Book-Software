@@ -3,7 +3,12 @@ package com.example.demo.book;
 import javax.persistence.*;
 
 @Entity(name = "Book")
-@Table
+@Table(
+        name = "Book",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "ISBN_unique", columnNames = "ISBN")
+        }
+)
 public class Book
 {
     @Id
