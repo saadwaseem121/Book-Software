@@ -26,6 +26,7 @@ public class Book
     private int year_published;
     private double price;
     private int sales;
+    private double rating;
 
     public Book() {
         this.sales = 0;
@@ -134,6 +135,14 @@ public class Book
         this.author = author;
     }
 
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -147,6 +156,7 @@ public class Book
                 ", year_published=" + year_published +
                 ", price=" + price +
                 ", sales=" + sales +
+                ", rating=" + rating +
                 '}';
     }
 }
