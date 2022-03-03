@@ -3,7 +3,9 @@ package com.example.demo.book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -36,5 +38,37 @@ public class BookService {
             throw new IllegalStateException("Book with id " + bookId + "does not exist.");
         }
         bookRepository.deleteById(bookId);
+    }
+
+    @Transactional
+    public void updateBook(Long bookId, String title, String genre, String description,
+                           String publisher, int year_published, double price) {
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new IllegalStateException("Book with id " + bookId + "does not exist."));
+
+        //checks if title is input as argument
+        if (title != null && title.length() > 0 && !Objects.equals(book.getTitle(), title)){
+            book.setTitle(title);
+        }
+
+        if (genre != null && genre.length() > 0 && !Objects.equals(book.getGenre(), genre)){
+            book.setGenre(genre);
+        }
+
+        if (description != null && description.length() > 0 && !Objects.equals(book.getDescription(), description)){
+            book.setDescription(description);
+        }
+
+        if (publisher != null && publisher.length() > 0 && !Objects.equals(book.getPublisher(), publisher)){
+            book.setPublisher(publisher);
+        }
+
+        if (year_published != 0 && !Objects.equals(book.getYear_published(), year_published)){
+            book.setYear_published(year_published);
+        }
+
+        if (price != 0 && !Objects.equals(book.getPrice(), price)){
+            book.setPrice(price);
+        }
     }
 }
