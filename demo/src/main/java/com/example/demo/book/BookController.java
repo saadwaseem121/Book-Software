@@ -1,6 +1,7 @@
 package com.example.demo.book;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,15 +29,15 @@ public class BookController {
         bookService.addNewBook(book);
     }
 
-    @DeleteMapping(path = "{bookId}")
-    public void deleteBook(@PathVariable("bookId") Long bookId)
+    @DeleteMapping(path = "{book_id}")
+    public void deleteBook(@PathVariable("book_id") Long bookId)
     {
         bookService.deleteBook(bookId);
     }
 
-    @PutMapping(path = "{bookId}")
+    @PutMapping(path = "{book_id}")
     public void updateBook(
-            @PathVariable("bookId") Long bookId,
+            @PathVariable("book_id") Long bookId,
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String genre,
             @RequestParam(required = false) String description,
@@ -46,5 +47,21 @@ public class BookController {
     {
         bookService.updateBook(bookId, title, genre, description, publisher, year_published, price);
     }
-    
+
+    @PutMapping("/{book_id}/author/{author_id}")
+    public void addAuthorToBook(@PathVariable Long book_id, @PathVariable Long author_id){
+        bookService.addAuthorToBook(book_id, author_id);
+    }
+
+    @GetMapping("/author/{author_id}")
+    public List<Book> getBooksByAuthor(@PathVariable Long author_id){
+        return bookService.getBooksByAuthor(author_id);
+    }
+
+    @GetMapping("/top")
+    public Page<Book> getTopSellers(){
+        return bookService.getTopSellers();
+    }
+
+
 }
