@@ -4,37 +4,40 @@ import com.example.demo.book.Book;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "Author")
 @Table
 public class Author {
     @Id
     @SequenceGenerator(
-            name = "book_sequence",
-            sequenceName = "book_sequence",
+            name = "author_sequence",
+            sequenceName = "author_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "book_sequence"
+            generator = "author_sequence"
     )
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String first_name;
 
-    @Column(nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String last_name;
 
+    @Column(name = "biography")
     private String biography;
+
+    @Column(name = "publisher")
     private String publisher;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "author")
-    private Set<Book> booksWritten = new HashSet<>();
+    @OneToMany(mappedBy = "author", orphanRemoval = true, cascade = {CascadeType.ALL})
+    private List<Book> booksWritten = new ArrayList<>();
 
     public Author() {
 
@@ -98,12 +101,22 @@ public class Author {
         this.publisher = publisher;
     }
 
-    public Set<Book> getBooksWritten() {
+    public List<Book> getBooksWritten() {
         return booksWritten;
     }
 
-    public void addWrittenBook(Book book) {
-        booksWritten.add(book);
+    public void addBook(Book book) {
+        if(!booksWritten.contains(book)){
+            booksWritten.add(book);
+            book.setAuthor(this);
+        }
+    }
+
+    public void removeBook(Book book) {
+        if(booksWritten.contains(book)) {
+            booksWritten.remove(book);
+            book.setAuthor(null);
+        }
     }
 
     @Override
