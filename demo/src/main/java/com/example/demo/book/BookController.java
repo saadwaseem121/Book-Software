@@ -47,11 +47,7 @@ public class BookController {
     {
         bookService.updateBook(bookId, title, genre, description, publisher, year_published, price);
     }
-
-    @PutMapping("/{book_id}/author/{author_id}")
-    public void addAuthorToBook(@PathVariable Long book_id, @PathVariable Long author_id){
-        bookService.addAuthorToBook(book_id, author_id);
-    }
+    
 
     @GetMapping("/author/{author_id}")
     public List<Book> getBooksByAuthor(@PathVariable Long author_id){
