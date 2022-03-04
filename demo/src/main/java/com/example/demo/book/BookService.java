@@ -1,6 +1,11 @@
 package com.example.demo.book;
 
+import com.example.demo.author.Author;
+import com.example.demo.author.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -31,20 +36,20 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public void deleteBook(Long bookId) {
-        boolean exists = bookRepository.existsById(bookId);
+    public void deleteBook(Long book_id) {
+        boolean exists = bookRepository.existsById(book_id);
         if (!exists)
         {
-            throw new IllegalStateException("Book with id " + bookId + "does not exist.");
+            throw new IllegalStateException("Book with id " + book_id + "does not exist.");
         }
-        bookRepository.deleteById(bookId);
+        bookRepository.deleteById(book_id);
     }
 
     @Transactional
-    public void updateBook(Long bookId, String title, String genre, String description,
+    public void updateBook(Long book_id, String title, String genre, String description,
                            String publisher, int year_published, double price) {
-        Book book = bookRepository.findById(bookId)
-                .orElseThrow(() -> new IllegalStateException("Book with id " + bookId + "does not exist."));
+        Book book = bookRepository.findById(book_id)
+                .orElseThrow(() -> new IllegalStateException("Book with id " + book_id + "does not exist."));
 
         //checks if title is input as argument
         if (title != null && title.length() > 0 && !Objects.equals(book.getTitle(), title)){
@@ -70,5 +75,16 @@ public class BookService {
         if (price != 0 && !Objects.equals(book.getPrice(), price)){
             book.setPrice(price);
         }
+    }
+
+
+    public List<Book> getBooksByAuthor(Long author_id) {
+        List<Book> book = bookRepository.findBooksByAuthor_Id(author_id);
+        return book;
+    }
+
+    public Page<Book> getTopSellers(){
+        PageRequest pageRequest = PageRequest.of(0, 10, Sort.by("sales").descending());
+        return bookRepository.findAll(pageRequest);
     }
 }
