@@ -1,5 +1,7 @@
 package com.example.demo.book;
 
+import com.example.demo.author.Author;
+
 import javax.persistence.*;
 
 @Entity(name = "Book")
@@ -24,14 +26,16 @@ public class Book
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(name = "ISBN", nullable = false, unique = true)
+    @Column(name = "ISBN", nullable = false)
     private String ISBN;
 
     @Column(nullable = false)
     private String title;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="author_id", referencedColumnName = "id")
     @Column(nullable = false)
-    private String author;
+    private Author author;
 
     @Column(nullable = false)
     private String genre;
@@ -147,7 +151,7 @@ public class Book
         this.sales++;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
