@@ -29,34 +29,40 @@ public class Book
     @Column(name = "ISBN", nullable = false)
     private String ISBN;
 
-    @Column(nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="author_id", referencedColumnName = "id")
-    @Column(nullable = false)
+    @JoinColumn(name="author_id", nullable = false, referencedColumnName = "id",
+            foreignKey = @ForeignKey (name = "author_book_fk"))
     private Author author;
 
-    @Column(nullable = false)
+    @Column(name = "genre", nullable = false)
     private String genre;
+
+    @Column(name = "description")
     private String description;
 
-    @Column(nullable = false)
+    @Column(name = "publisher", nullable = false)
     private String publisher;
 
-    @Column(nullable = false)
+    @Column(name = "year_published", nullable = false)
     private int year_published;
 
-    @Column(nullable = false)
+    @Column(name = "price", nullable = false)
     private double price;
+
+    @Column(name = "sales")
     private int sales;
+
+    @Column(name = "rating")
     private double rating;
 
     public Book() {
         this.sales = 0;
     }
 
-    public Book(String ISBN, String title, String author, String genre, String description, String publisher, int year_published, double price) {
+    public Book(String ISBN, String title, Author author, String genre, String description, String publisher, int year_published, double price) {
         this.ISBN = ISBN;
         this.title = title;
         this.author = author;
@@ -68,7 +74,7 @@ public class Book
         this.sales = 0;
     }
 
-    public Book(String ISBN, String title, String author, String genre, String publisher, int year_published, double price) {
+    public Book(String ISBN, String title, Author author, String genre, String publisher, int year_published, double price) {
         this.ISBN = ISBN;
         this.title = title;
         this.author = author;
@@ -147,7 +153,7 @@ public class Book
         return sales;
     }
 
-    public void incrementSales(int sales) {
+    public void incrementSales() {
         this.sales++;
     }
 
