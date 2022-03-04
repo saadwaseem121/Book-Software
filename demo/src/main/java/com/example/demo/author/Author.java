@@ -1,6 +1,11 @@
 package com.example.demo.author;
 
+import com.example.demo.book.Book;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Author")
 @Table
@@ -26,6 +31,14 @@ public class Author {
 
     private String biography;
     private String publisher;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "author")
+    private Set<Book> booksWritten = new HashSet<>();
+
+    public Author() {
+
+    }
 
     public Author(String first_name, String last_name, String biography, String publisher) {
         this.first_name = first_name;
@@ -83,6 +96,14 @@ public class Author {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public Set<Book> getBooksWritten() {
+        return booksWritten;
+    }
+
+    public void addWrittenBook(Book book) {
+        booksWritten.add(book);
     }
 
     @Override
