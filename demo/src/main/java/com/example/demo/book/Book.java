@@ -74,6 +74,18 @@ public class Book
         this.sales = 0;
     }
 
+    public Book(String ISBN, String title, Author author, String genre, String description, String publisher, int year_published, double price, int sales) {
+        this.ISBN = ISBN;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.description = description;
+        this.publisher = publisher;
+        this.year_published = year_published;
+        this.price = price;
+        this.sales = sales;
+    }
+
     public Book(String ISBN, String title, Author author, String genre, String publisher, int year_published, double price) {
         this.ISBN = ISBN;
         this.title = title;
@@ -179,7 +191,7 @@ public class Book
                 "id=" + id +
                 ", ISBN=" + ISBN +
                 ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
+                ", author='" + this.author.getName() + '\'' +
                 ", genre='" + genre + '\'' +
                 ", description='" + description + '\'' +
                 ", publisher='" + publisher + '\'' +
