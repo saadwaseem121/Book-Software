@@ -191,7 +191,7 @@ public class Book
                 "id=" + id +
                 ", ISBN=" + ISBN +
                 ", title='" + title + '\'' +
-                ", author='" + this.author.getName() + '\'' +
+                ", author='" + author + '\'' +
                 ", genre='" + genre + '\'' +
                 ", description='" + description + '\'' +
                 ", publisher='" + publisher + '\'' +
