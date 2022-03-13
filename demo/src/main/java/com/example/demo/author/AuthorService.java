@@ -1,5 +1,6 @@
 package com.example.demo.author;
 
+import com.example.demo.book.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,9 @@ public class AuthorService {
 
     public List<Author> getAuthors() {
         return authorRepository.findAll();
+    }
+
+    public void addNewAuthor(Author author) {
+        authorRepository.save(author);
     }
 }
