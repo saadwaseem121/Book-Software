@@ -21,4 +21,9 @@ public class AuthorController
         return authorService.getAuthors();
     }
 
+    @PostMapping
+    public void addNewAuthor(@RequestBody Author author){
+        authorService.addNewAuthor(author);
+    }
+
 }
