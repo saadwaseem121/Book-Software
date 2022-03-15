@@ -40,10 +40,6 @@ public class Config {
             Author anekoYusagi = new Author("Aneko", "Yusagi", "", "");
             Author natsumeAkatsuki = new Author("Natsume", "Akatsuki", "", "");
 
-            authorRepository.saveAll(List.of(jkRowling, jrrTolkien, stephenKing, lemonySnicket, rekiKawaraha, mattHaig, kyungSookShin, minJinLee,
-                    ginjerClarke, rifujinNaMagonote, yuriKitayama, okinaBaba, wataruWatari, rickRiordan, ryoShirakome, alexPine, gilesTremlett,
-                    yuyukoTakemiya, aoJyumonji, fujinoOmori, anekoYusagi, natsumeAkatsuki));
-
             //add books by declaring their ISBN, title, author, genre, description,
             //publisher, year of publication, and price in that order
             //
@@ -234,6 +230,9 @@ public class Config {
                                     , book38, book39, book40, book41, book42
                             )
             );
+            authorRepository.saveAll(List.of(jkRowling, jrrTolkien, stephenKing, lemonySnicket, rekiKawaraha, mattHaig, kyungSookShin, minJinLee,
+                    ginjerClarke, rifujinNaMagonote, yuriKitayama, okinaBaba, wataruWatari, rickRiordan, ryoShirakome, alexPine, gilesTremlett,
+                    yuyukoTakemiya, aoJyumonji, fujinoOmori, anekoYusagi, natsumeAkatsuki));
 
         };
     };
