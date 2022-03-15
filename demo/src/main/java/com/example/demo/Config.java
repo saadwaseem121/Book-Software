@@ -41,7 +41,7 @@ public class Config {
             Author natsumeAkatsuki = new Author("Natsume", "Akatsuki", "", "");
 
             authorRepository.saveAll(List.of(jkRowling, jrrTolkien, stephenKing, lemonySnicket, rekiKawaraha, mattHaig, kyungSookShin, minJinLee,
-                    ginjerClarke, rifujinNaMagonote, yuriKitayama, okinaBaba, wataruWatari, rickRiordan, ryoShirakome, alexPine, gilesTremlett
+                    ginjerClarke, rifujinNaMagonote, yuriKitayama, okinaBaba, wataruWatari, rickRiordan, ryoShirakome, alexPine, gilesTremlett,
                     yuyukoTakemiya, aoJyumonji, fujinoOmori, anekoYusagi, natsumeAkatsuki));
 
             //add books by declaring their ISBN, title, author, genre, description,
