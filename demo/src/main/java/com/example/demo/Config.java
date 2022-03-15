@@ -1,6 +1,9 @@
-package com.example.demo.book;
+package com.example.demo;
 
 import com.example.demo.author.Author;
+import com.example.demo.author.AuthorRepository;
+import com.example.demo.book.Book;
+import com.example.demo.book.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,9 +11,9 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class BookConfig {
+public class Config {
     @Bean
-    CommandLineRunner bookCommandLineRunner(BookRepository repository){
+    CommandLineRunner bookCommandLineRunner(BookRepository bookRepository, AuthorRepository authorRepository){
         return args->
         {
             //create and implement author classes before putting them as parameters for the books
@@ -37,8 +40,9 @@ public class BookConfig {
             Author anekoYusagi = new Author("Aneko", "Yusagi", "", "");
             Author natsumeAkatsuki = new Author("Natsume", "Akatsuki", "", "");
 
-
-
+            authorRepository.saveAll(List.of(jkRowling, jrrTolkien, stephenKing, lemonySnicket, rekiKawaraha, mattHaig, kyungSookShin, minJinLee,
+                    ginjerClarke, rifujinNaMagonote, yuriKitayama, okinaBaba, wataruWatari, rickRiordan, ryoShirakome, alexPine, gilesTremlett
+                    yuyukoTakemiya, aoJyumonji, fujinoOmori, anekoYusagi, natsumeAkatsuki));
 
             //add books by declaring their ISBN, title, author, genre, description,
             //publisher, year of publication, and price in that order
@@ -52,11 +56,11 @@ public class BookConfig {
             Book book2 = new Book("0261103342", "The Hobbit", jrrTolkien, "High fantasy",
                     "The distinctly homely Bilbo Baggins hears the siren bell for adventure and" +
                             "leaves his nest to collect a share of the treasure guarded by the dragon Smaug.",
-                    "Harper Collins", 1937, 14.99);
+                    "Harper Collins", 1937, 14.99, 57);
 
             Book book3 = new Book("0670813028", "It", stephenKing, "Horror",
                     "One of Stephen King's most prolific novels, starring the iconic clown character, " +
-                            "Pennywise.", "Viking", 1986, 20.99);
+                            "Pennywise.", "Viking", 1986, 20.99, 17);
 
             Book book4 = new Book("9780439139595", "Harry Potter and the Goblet of Fire", jkRowling, "Fantasy",
                     "It follows Harry fourth year at Hogwarts and the mystery surrounding the entry of his name into the Triwizard Tournament in which he is forced to compete",
@@ -76,27 +80,27 @@ public class BookConfig {
 
             Book book8 = new Book("9780064407663", "The Bad Beginning (A Series of Unfortunate Events #1))", lemonySnicket, "Mystery",
                     "Its the story of three orphan children, Violet, Klaus, & Sunny Baudelaire who are sent to live with Count Olaf, who attempts to steal their inheritance.",
-                    "HarperCollins", 1999, 8.96);
+                    "HarperCollins", 1999, 8.96, 23);
 
             Book book9 = new Book("9780064407670", "The Reptile Room (A Series of Unfortunate Events #2))", lemonySnicket, "Mystery",
                     "The second book follows the Baudelaire orphans, as they are sent to live with a distant relative named Montgomery whiles escaping Count Olaf.",
-                    "HarperCollins", 1999, 9.38);
+                    "HarperCollins", 1999, 9.38, 11);
 
             Book book10 = new Book("9780064407687", "The Wide Window (A Series of Unfortunate Events #3))", lemonySnicket, "Mystery",
                     "The third book follows the Baudelaire orphans who goes to live with their aunt Josephine, who is seemingly scared of everything.",
-                    "HarperCollins", 2000, 6.88);
+                    "HarperCollins", 2000, 6.88, 3);
 
             Book book11 = new Book("9780064407694", "The Miserable Mill (A Series of Unfortunate Events, #4))", lemonySnicket, "Mystery",
                     "In the fourth novel of the series the Baudelaire orphans live with the owner of Lucky Smells Lumber Mill.",
-                    "HarperCollins", 2000, 9.79);
+                    "HarperCollins", 2000, 9.79, 1);
 
             Book book12 = new Book("9780064408639", "The Austere Academy (A Series of Unfortunate Events, #5))", lemonySnicket, "Mystery",
                     "In the fifth novel The Baudelaire orphans are sent to a boarding school, overseen by monstrous employees. They meet new friends, enemies, & Count Olaf in disguises.",
-                    "HarperCollins", 2000, 10.69);
+                    "HarperCollins", 2000, 10.69, 5);
 
             Book book13 = new Book("9780064408646", "The Ersatz Elevator (A Series of Unfortunate Events, #6))", lemonySnicket, "Mystery",
                     "In the sixth novel, the Baudelaires are sent to live with the wealthy Esmé and Jerome Squalor. ",
-                    "HarperCollins", 2001, 10.99);
+                    "HarperCollins", 2001, 10.99, 12);
 
             Book book14 = new Book("9780064408653", "The Vile Village (A Series of Unfortunate Events, #7))", lemonySnicket, "Mystery",
                     "In the seventh novel, the Baudelaire orphans are taken into the care of a village, only to find rules, chores & evil seniors, as well as Count Olaf lurking nearby.",
@@ -120,7 +124,7 @@ public class BookConfig {
 
             Book book19 = new Book("9780064410151", "The Penultimate Peril (A Series of Unfortunate Events, #12))", lemonySnicket, "Mystery",
                     "In the twelveth book, the Baudelaires are sent to work at Hotel Denouement to uncover which of the guests are working for the V.F.D. & which are working against them.",
-                    "HarperCollins", 2005, 10.07);
+                    "HarperCollins", 2005, 10.07, 76);
 
             Book book20 = new Book("9780064410168", "The End (A Series of Unfortunate Events, #13))", lemonySnicket, "Mystery",
                     "The End is the thirteenth and final novel in the children's novel series A Series of Unfortunate Events by Lemony Snicket.",
@@ -222,7 +226,7 @@ public class BookConfig {
                             " So he chooses the goddess, Aqua!",
                     "Yen On", 2017, 14.00);
 
-            repository.saveAll(
+            bookRepository.saveAll(
                             List.of(book1, book2, book3, book4, book5, book6, book7, book8 ,book9, book10
                                     , book11, book12, book13, book14, book15, book16, book17, book18, book19
                                     , book20, book21, book22, book23, book24, book25, book26, book27, book28
@@ -230,6 +234,7 @@ public class BookConfig {
                                     , book38, book39, book40, book41, book42
                             )
             );
+
         };
     };
 }
