@@ -4,6 +4,8 @@ import com.example.demo.author.Author;
 import com.example.demo.author.AuthorRepository;
 import com.example.demo.book.Book;
 import com.example.demo.book.BookRepository;
+import com.example.demo.user.User;
+import com.example.demo.user.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,11 +13,20 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class Config {
+public class Config
+{
     @Bean
-    CommandLineRunner bookCommandLineRunner(BookRepository bookRepository, AuthorRepository authorRepository){
+    CommandLineRunner bookStoreCommandLineRunner(BookRepository bookRepository, AuthorRepository authorRepository,
+                                            UserRepository userRepository)
+    {
         return args->
         {
+            User user1 = new User("jimmy@gmail.com", "12345", "Jimmy", "123 random street");
+            User user2 = new User("anne@fiu.edu", "password", "Anne", "453 random street");
+            User user3 = new User("franklin@bellsouth.net", "54321", "Frank", "433 backward street");
+            User user4 = new User("juan@yahoo.com", "juan7", "Juan", "111 backward street");
+            User user5 = new User("grace111@gmail.com", "princess2", "Grace", "600 maple street");
+
             //create and implement author classes before putting them as parameters for the books
             Author jkRowling = new Author("J.K.", "Rowling", "", "Bloomsbury");
             Author jrrTolkien = new Author("J.R.R.", "Tolkien", "", "Harper Collins");
@@ -149,7 +160,6 @@ public class Config {
                             "Yet secrets and sorrows begin to reveal themselves, they are forced to wonder: " +
                             "how well did they know the woman they called Mom?",
                     "Vintage", 2012, 13.99);
-            
             Book book26 = new Book("9780099514282", "Free Food for Millionaires", minJinLee, "Literature & Fiction",
                     "Casey daughter of Korean immigrants is eager to make it on her own, away from her parents' tight-knit community, " +
                             "but she soon finds that her economics degree isn't enough to rid her of ever-growing credit card debt and a toxic boyfriend. ",
@@ -227,12 +237,14 @@ public class Config {
                                     , book11, book12, book13, book14, book15, book16, book17, book18, book19
                                     , book20, book21, book22, book23, book24, book25, book26, book27, book28
                                     , book29, book30, book31, book32, book33, book34, book35, book36, book37
-                                    , book38, book39, book40, book41, book42
-                            )
-            );
-            authorRepository.saveAll(List.of(jkRowling, jrrTolkien, stephenKing, lemonySnicket, rekiKawaraha, mattHaig, kyungSookShin, minJinLee,
-                    ginjerClarke, rifujinNaMagonote, yuriKitayama, okinaBaba, wataruWatari, rickRiordan, ryoShirakome, alexPine, gilesTremlett,
-                    yuyukoTakemiya, aoJyumonji, fujinoOmori, anekoYusagi, natsumeAkatsuki));
+                                    , book38, book39, book40, book41, book42));
+
+            authorRepository.saveAll(List.of(jkRowling, jrrTolkien, stephenKing, lemonySnicket, rekiKawaraha, mattHaig,
+                    kyungSookShin, minJinLee, ginjerClarke, rifujinNaMagonote, yuriKitayama, okinaBaba, wataruWatari,
+                    rickRiordan, ryoShirakome, alexPine, gilesTremlett, yuyukoTakemiya, aoJyumonji, fujinoOmori,
+                    anekoYusagi, natsumeAkatsuki));
+
+            userRepository.saveAll(List.of(user1, user2, user3, user4, user5));
 
         };
     };
