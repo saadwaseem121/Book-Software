@@ -40,7 +40,7 @@ public class BookService {
         boolean exists = bookRepository.existsById(book_id);
         if (!exists)
         {
-            throw new IllegalStateException("Book with id " + book_id + "does not exist.");
+            throw new IllegalStateException("Book with id " + book_id + " does not exist.");
         }
         bookRepository.deleteById(book_id);
     }
