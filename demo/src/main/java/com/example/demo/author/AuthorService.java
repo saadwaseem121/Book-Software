@@ -17,6 +17,11 @@ public class AuthorService {
         this.authorRepository = authorRepository;
     }
 
+    public Optional<Author> getAuthorById(Long author_id)
+    {
+        return authorRepository.findAuthorById(author_id);
+    }
+
     public List<Author> getAuthors() {
         return authorRepository.findAll();
     }
