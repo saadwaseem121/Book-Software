@@ -42,12 +42,12 @@ public class BookController {
             @RequestParam(required = false) String genre,
             @RequestParam(required = false) String description,
             @RequestParam(required = false) String publisher,
-            @RequestParam(required = false) int year_published,
-            @RequestParam(required = false) double price)
+            @RequestParam(required = false, defaultValue = "0") int year_published,
+            @RequestParam(required = false, defaultValue = "0.00") double price)
     {
         bookService.updateBook(bookId, title, genre, description, publisher, year_published, price);
     }
-    
+
 
     @GetMapping("/author/{author_id}")
     public List<Book> getBooksByAuthor(@PathVariable Long author_id){
