@@ -1,6 +1,7 @@
 package com.example.demo.book;
 
 import com.example.demo.author.Author;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
@@ -33,7 +34,7 @@ public class Book
     private String title;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="author_id", nullable = false, referencedColumnName = "id",
+    @JoinColumn(name="author_id", nullable = true, referencedColumnName = "id",
             foreignKey = @ForeignKey (name = "author_book_fk"))
     private Author author;
 
@@ -62,6 +63,7 @@ public class Book
         this.sales = 0;
     }
 
+    @Autowired
     public Book(String ISBN, String title, Author author, String genre, String description, String publisher, int year_published, double price) {
         this.ISBN = ISBN;
         this.title = title;
@@ -74,6 +76,7 @@ public class Book
         this.sales = 0;
     }
 
+    @Autowired
     public Book(String ISBN, String title, Author author, String genre, String description, String publisher, int year_published, double price, int sales) {
         this.ISBN = ISBN;
         this.title = title;
@@ -86,6 +89,19 @@ public class Book
         this.sales = sales;
     }
 
+    @Autowired
+    public Book(String ISBN, String title, String genre, String description, String publisher, int year_published, double price, int sales) {
+        this.ISBN = ISBN;
+        this.title = title;
+        this.genre = genre;
+        this.description = description;
+        this.publisher = publisher;
+        this.year_published = year_published;
+        this.price = price;
+        this.sales = sales;
+    }
+
+    @Autowired
     public Book(String ISBN, String title, Author author, String genre, String publisher, int year_published, double price) {
         this.ISBN = ISBN;
         this.title = title;
